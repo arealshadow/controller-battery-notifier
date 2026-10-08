@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/logo.png" alt="Controller Battery Notifier" width="240">
+  <img src="Assets/logo.png" alt="Controller Battery Notifier" width="240">
 </p>
 
 # Controller Battery Notifier
