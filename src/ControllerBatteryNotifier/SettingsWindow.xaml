@@ -1,0 +1,40 @@
+<Window x:Class="ControllerBatteryNotifier.SettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Controller Battery Notifier — Settings"
+        Width="480" SizeToContent="Height"
+        WindowStyle="None" ResizeMode="NoResize" AllowsTransparency="True"
+        Background="Transparent" ShowInTaskbar="True"
+        WindowStartupLocation="CenterScreen">
+
+    <!-- Drop shadow + dark blue glass card -->
+    <Border Margin="14" CornerRadius="16">
+        <Border.Effect>
+            <DropShadowEffect BlurRadius="26" ShadowDepth="4" Direction="270" Color="#000000" Opacity="0.6"/>
+        </Border.Effect>
+        <Border CornerRadius="16" Background="{StaticResource GlassBackground}"
+                BorderBrush="#42FFFFFF" BorderThickness="1">
+            <DockPanel>
+
+                <!-- Title bar: title + close -->
+                <Grid DockPanel.Dock="Top" Margin="18,14,14,6"
+                      MouseLeftButtonDown="TitleBar_MouseLeftButtonDown">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="Settings" FontSize="16" FontWeight="Bold"
+                               Foreground="{StaticResource TextPrimary}" VerticalAlignment="Center"/>
+                    <Button x:Name="CloseButton" Grid.Column="1" Content="&#10005;"
+                            Width="30" Height="30" FontSize="12"
+                            Style="{StaticResource PillButton}"
+                            ToolTip="Close settings" Click="Close_Click"/>
+                </Grid>
+
+                <!-- Full settings panel (low battery, tray, device refresh, devices…) -->
+                <ContentControl x:Name="Host" Margin="4,4,4,10"/>
+
+            </DockPanel>
+        </Border>
+    </Border>
+</Window>

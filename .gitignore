@@ -1,0 +1,28 @@
+# .NET build output
+bin/
+obj/
+*.user
+*.suo
+*.cache
+
+# Publish output & compiled installer (regenerable)
+installer/publish/
+installer/output/
+*.exe
+*.msi
+*.zip
+
+# Rendered icon dumps & temp diagnostics (generated in %TEMP% / user profile)
+cbn-*.png
+cbn-*.txt
+flyout-*.png
+settings-*.png
+test-shot.png
+
+# IDE / OS noise
+.vs/
+.vscode/
+.idea/
+Thumbs.db
+Desktop.ini
+.DS_Store

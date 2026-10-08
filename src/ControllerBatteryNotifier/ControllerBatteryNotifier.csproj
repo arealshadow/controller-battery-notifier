@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <!--
+      .NET 9 (Windows) is used on purpose: the WinRT projection that ships with the
+      .NET 9 SDK (Microsoft.Windows.SDK.NET.Ref 10.0.26100.57) exposes the modern
+      GATT API (Windows.Devices.Bluetooth.GenericAttributeProfile.GattDeviceService)
+      that we use to read the controller battery. The WinRT projection is referenced
+      implicitly by the SDK — no NuGet package is needed (referencing
+      Microsoft.Windows.SDK.NET.Ref as a PackageReference fails with NU1213).
+      Requires the .NET 9 Desktop Runtime on the machine (installed here).
+    -->
+    <TargetFramework>net9.0-windows10.0.26100.0</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>ControllerBatteryNotifier</RootNamespace>
+    <AssemblyName>ControllerBatteryNotifier</AssemblyName>
+    <Version>1.0.0</Version>
+    <Product>Controller Battery Notifier</Product>
+    <Description>Monitors the battery level of Bluetooth game controllers and notifies you when it gets low.</Description>
+    <ApplicationIcon>Assets\app.ico</ApplicationIcon>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Hardcodet.NotifyIcon.Wpf" Version="2.0.1" />
+    <PackageReference Include="System.Management" Version="9.0.0" />
+  </ItemGroup>
+
+</Project>
